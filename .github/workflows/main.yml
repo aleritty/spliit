@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
   schedule: 
    - cron: '0 4 * * 6'
   workflow_dispatch:
@@ -24,9 +24,9 @@ jobs:
         persist-credentials: false
     - uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
       with:
-        target_sync_branch: master
+        target_sync_branch: main
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-        upstream_sync_branch: master
+        upstream_sync_branch: main
         upstream_sync_repo: spliit-app/spliit
         upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
     - name: apply my patches
