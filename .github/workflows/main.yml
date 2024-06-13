@@ -36,6 +36,7 @@ jobs:
           manifest.webmanifest
           screenshot-wide.jpg
           screenshot.jpg
+        sparse-checkout-cone-mode: false
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/aleritty/spliit:latest
