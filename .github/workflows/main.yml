@@ -28,8 +28,14 @@ jobs:
         upstream_sync_branch: main
         upstream_sync_repo: spliit-app/spliit
         upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
-    - name: apply my patches
-      run: git cherry-pick main-patch
+    - name: Checkout patch branch
+      uses: actions/checkout@v4
+      with:
+        ref: main-patch
+        sparse-checkout: |
+          manifest.webmanifest
+          screenshot-wide.jpg
+          screenshot.jpg
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/aleritty/spliit:latest
