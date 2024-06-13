@@ -20,7 +20,6 @@ jobs:
     - name: Checkout target repo
       uses: actions/checkout@v4
       with:
-        depth: 0
         persist-credentials: false
     - uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
       with:
@@ -29,8 +28,6 @@ jobs:
         upstream_sync_branch: main
         upstream_sync_repo: spliit-app/spliit
         upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
-    - name: apply patches
-      run: git cherry-pick main-patch
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/aleritty/spliit:latest
