@@ -20,7 +20,7 @@ jobs:
     - name: Checkout target repo
       uses: actions/checkout@v4
       with:
-        ref:  master
+        ref:  main
         persist-credentials: false
     - uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
       with:
