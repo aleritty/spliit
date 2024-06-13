@@ -38,4 +38,4 @@ jobs:
         username: aleritty
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Push the docker image to ghcr.io
-      run: docker push ghcr.io/aleritty/anchr:latest
+      run: docker push ghcr.io/aleritty/spliit:latest
